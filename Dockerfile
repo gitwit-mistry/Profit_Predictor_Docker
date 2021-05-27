@@ -1,6 +1,6 @@
 FROM centos:latest
 
-ADD /profit_predictor  .
+COPY /profit_predictor  .
 
 RUN yum install python3 -y  && pip3 install -r requirements.txt
 

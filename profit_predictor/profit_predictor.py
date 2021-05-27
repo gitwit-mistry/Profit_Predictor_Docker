@@ -13,15 +13,16 @@ class Profit:
     def predict(self):
         d_data = ohe.transform(data)
         predict = model.predict(d_data)[0]
-        print(predict)
-            
-    
+        print(f"This approximate profit made by the startup is: ${predict}\n")
                 
 if __name__ == "__main__":
+    print("************************")
+    print("Statup Profit Calculator")
+    print("************************\n\n")
     rnd = float(input('Enter Rnd Cost: '))
     admin = float(input('Enter Administation Cost: '))
     market = float(input('Enter Marketing Spend: '))
-    city = input('Enter State: ')
+    city = input('Enter State [New York,California,Florida]: ')
     data = pd.DataFrame([rnd,admin,market,city],index=['R&D Spend', 'Administration', 'Marketing Spend', 'State']).T
     obj = Profit(data)
     obj.predict()
